@@ -39,48 +39,49 @@ public class MealListManager implements MealListService{
 		
 		List<MealList> MealListResult = mealListRepository.findAll();
 		ArrayList<MealListGetAll> mealListResponse = new ArrayList<MealListGetAll>();
-		List<Meal> mealResult = mealRepository.findAll();
 		
-		for(MealList mealList: MealListResult) {
-			
-			MealListGetAll mealListGetAll  = new MealListGetAll();
-			mealListGetAll.setId(mealList.getId());
-			mealListGetAll.setNutrition(mealList.getNutrition());
-			mealListGetAll.setWeight(mealList.getWeight());
-			mealListGetAll.setCreatedDate(mealList.getCreatedDate());
-			mealListResponse.add(mealListGetAll);
 		
+		for(int i=0;i<MealListResult.size();i++) {
+				MealListGetAll mealListGetAll = new MealListGetAll();
+				mealListGetAll.setMeal(MealListResult.get(i).getMeal().getName());
+				mealListGetAll.setCreatedDate(MealListResult.get(i).getCreatedDate());
+				mealListGetAll.setWeight(MealListResult.get(i).getWeight());
+				mealListGetAll.setNutrition(MealListResult.get(i).getNutrition());
+				
+				mealListResponse.add(mealListGetAll);
 			
 		}
-		return mealListResponse;
-	}
+			return mealListResponse;
+		}
+	
 
 	@Override
 	public void add(CreateMealList createMealList) {
-		List<Meal> MealResult = mealRepository.findAll();
-		List<Nutrition> nutritionResult = nutritionRepository.findAll();
-		ArrayList<Nutrition> nutritions =  new ArrayList<Nutrition>();
+		List<Meal> meals = mealRepository.findAll();
+		List<Nutrition> nutritions = nutritionRepository.findAll();
 		MealList mealList = new MealList();
+		ArrayList<Nutrition> nutritions2 = new ArrayList<Nutrition>();
 		
-		for(String nutrition:createMealList.getNutrition()) {
-			for(Nutrition nutrition2:nutritionResult) {
-				if(nutrition.equals(nutrition2.getName())) {
-					nutritions.add(nutrition2);
+		for(int i = 0; i < meals.size(); i++) {
+			if(meals.get(i).getName().equals(createMealList.getMeal())) {
+				mealList.setMeal(meals.get(i));
+			}
+			for(int j = 0; j <createMealList.getNutrition().size(); j++) {
+				for(int z=0; z<nutritions.size();z++) {
+					
+					if(nutritions.get(z).getName().equals(createMealList.getNutrition().get(j))) {
+						nutritions2.add(nutritions.get(z));
+					}
 				}
+				mealList.setNutrition(nutritions2);
+				
 			}
-		}
-		
-		mealList.setNutrition(nutritions);
-		mealList.setWeight(createMealList.getWeight());
-		mealList.setCreatedDate(createMealList.getCreatedDate());
-		for(Meal meal:MealResult) {
 			
-			if(meal.getName().equals(createMealList.getMeal())) {
-				mealList.setMeal(meal);
-			}
+		mealList.setCreatedDate(createMealList.getCreatedDate());
+		mealList.setWeight(createMealList.getWeight());
 		}
-		mealListRepository.save(mealList);
 		
+		mealListRepository.save(mealList);
 	}
 
 	@Override

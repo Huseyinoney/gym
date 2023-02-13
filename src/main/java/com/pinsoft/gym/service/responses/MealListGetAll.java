@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MealListGetAll {
 	
-	private int id;
+	
 	private String meal;
 	private  List<Nutrition> nutrition;
 	private Double weight;
