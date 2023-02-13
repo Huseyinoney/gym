@@ -13,8 +13,8 @@ import com.pinsoft.gym.repository.abstracts.MealListRepository;
 import com.pinsoft.gym.repository.abstracts.MealRepository;
 import com.pinsoft.gym.repository.abstracts.NutritionRepository;
 import com.pinsoft.gym.service.abstracts.MealListService;
-import com.pinsoft.gym.service.requests.CreateMealList;
-import com.pinsoft.gym.service.requests.UpdateMealList;
+import com.pinsoft.gym.service.requests.MealList.CreateMealList;
+import com.pinsoft.gym.service.requests.MealList.UpdateMealList;
 import com.pinsoft.gym.service.responses.MealListGetAll;
 @Service
 public class MealListManager implements MealListService{

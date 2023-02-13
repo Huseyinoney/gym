@@ -9,8 +9,8 @@ import com.pinsoft.gym.model.NutritionType;
 import com.pinsoft.gym.repository.abstracts.NutritionRepository;
 import com.pinsoft.gym.repository.abstracts.NutritionTypeRepository;
 import com.pinsoft.gym.service.abstracts.NutritionService;
-import com.pinsoft.gym.service.requests.CreateNutrition;
-import com.pinsoft.gym.service.requests.UpdateNutrition;
+import com.pinsoft.gym.service.requests.Nutrition.CreateNutrition;
+import com.pinsoft.gym.service.requests.Nutrition.UpdateNutrition;
 @Service
 public class NutritionManager implements NutritionService {
 	private NutritionRepository nutritionRepository;

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import com.pinsoft.gym.model.Meal;
 import com.pinsoft.gym.repository.abstracts.MealRepository;
 import com.pinsoft.gym.service.abstracts.MealService;
-import com.pinsoft.gym.service.requests.CreateMeal;
-import com.pinsoft.gym.service.requests.UpdateMeal;
+import com.pinsoft.gym.service.requests.Meal.CreateMeal;
+import com.pinsoft.gym.service.requests.Meal.UpdateMeal;
 import com.pinsoft.gym.service.responses.MealGetAll;
 
 @Service

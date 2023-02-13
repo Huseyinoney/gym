@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.pinsoft.gym.model.User;
 import com.pinsoft.gym.repository.abstracts.UserRepository;
 import com.pinsoft.gym.service.abstracts.UserService;
-import com.pinsoft.gym.service.requests.CreateUser;
-import com.pinsoft.gym.service.requests.UpdateUser;
+import com.pinsoft.gym.service.requests.User.CreateUser;
+import com.pinsoft.gym.service.requests.User.UpdateUser;
 @Service
 public class UserManager implements UserService {
 	private UserRepository userRepository;

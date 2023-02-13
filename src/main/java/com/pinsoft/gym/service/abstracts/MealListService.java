@@ -2,8 +2,8 @@ package com.pinsoft.gym.service.abstracts;
 
 import java.util.List;
 
-import com.pinsoft.gym.service.requests.CreateMealList;
-import com.pinsoft.gym.service.requests.UpdateMealList;
+import com.pinsoft.gym.service.requests.MealList.CreateMealList;
+import com.pinsoft.gym.service.requests.MealList.UpdateMealList;
 import com.pinsoft.gym.service.responses.MealListGetAll;
 
 public interface MealListService {

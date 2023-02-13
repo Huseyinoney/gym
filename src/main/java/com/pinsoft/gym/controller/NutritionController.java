@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pinsoft.gym.model.Nutrition;
 import com.pinsoft.gym.service.abstracts.NutritionService;
-import com.pinsoft.gym.service.requests.CreateNutrition;
-import com.pinsoft.gym.service.requests.UpdateNutrition;
+import com.pinsoft.gym.service.requests.Nutrition.CreateNutrition;
+import com.pinsoft.gym.service.requests.Nutrition.DeleteNutrition;
+import com.pinsoft.gym.service.requests.Nutrition.UpdateNutrition;
 
 @RestController
 @RequestMapping("/nutrition")
@@ -39,9 +40,9 @@ public class NutritionController {
 		nutritionService.add(createNutrition);
 	}
 	@DeleteMapping("/Delete")
-	public void delete(@RequestBody int id) { 
+	public void delete(@RequestBody DeleteNutrition deleteNutrition) { 
 		
-		nutritionService.delete(id);
+		nutritionService.delete(deleteNutrition.getId());
 	}
 	@PutMapping("/Update")
 	public void update(@RequestBody UpdateNutrition updateNutrition) {

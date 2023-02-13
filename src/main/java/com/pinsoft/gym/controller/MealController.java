@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pinsoft.gym.service.abstracts.MealService;
-import com.pinsoft.gym.service.requests.CreateMeal;
-import com.pinsoft.gym.service.requests.UpdateMeal;
+import com.pinsoft.gym.service.requests.Meal.CreateMeal;
+import com.pinsoft.gym.service.requests.Meal.DeleteMeal;
+import com.pinsoft.gym.service.requests.Meal.UpdateMeal;
 import com.pinsoft.gym.service.responses.MealGetAll;
 
 @RestController
@@ -39,9 +40,9 @@ public MealController(MealService mealService) {
 		mealService.add(createMeal);
 	}
 	@DeleteMapping("/delete")
-	public void delete(@RequestBody int id) { 
+	public void delete(@RequestBody DeleteMeal deleteMeal) { 
 		
-		mealService.delete(id);
+		mealService.delete(deleteMeal.getId());
 	}
 	@PutMapping("/update")
 	public void update(@RequestBody UpdateMeal updateMeal) {
